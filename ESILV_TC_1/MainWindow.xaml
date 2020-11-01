@@ -1,0 +1,134 @@
+﻿<Window x:Class="ESILV_TC_1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ESILV_TC_1"
+        mc:Ignorable="d"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:viewmodels="clr-namespace:ESILV_TC_1.ViewModels"
+        xmlns:views="clr-namespace:ESILV_TC_1.Views"
+        Title="ESILV TC" Height="756" Width="1152" ResizeMode="NoResize" 
+        WindowStartupLocation="CenterOwner" WindowState="Normal" WindowStyle="None">
+    <Window.Resources>
+        <DataTemplate x:Name="MembreViewTemplate" DataType="{x:Type viewmodels:MembreViewModel}">
+            <views:Membre DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="CompetitionViewTemplate" DataType="{x:Type viewmodels:CompetitionViewModel}">
+            <views:Competition DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="MembreAfficherViewTemplate" DataType="{x:Type viewmodels:MembreAfficherViewModel}">
+            <views:MembreAfficher DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="MembreAjouterViewTemplate" DataType="{x:Type viewmodels:MembreAjouter}">
+            <views:MembreAjouter DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="MembreAdministrerViewTemplate" DataType="{x:Type viewmodels:MembreAdministrerViewModel}">
+            <views:MembreAdministrer DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="CompetitionAjouterViewTemplate" DataType="{x:Type viewmodels:CompetitionAjouterViewModel}">
+            <views:CompetitionAjouter DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="AccueilViewTemplate" DataType="{x:Type viewmodels:AccueilViewModel}">
+            <views:Accueil DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="StatistiquesViewTemplate" DataType="{x:Type viewmodels:StatistiquesAfficherViewModel}">
+            <views:StatisquesAfficher DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="AutreMemoryViewTemplate" DataType="{x:Type viewmodels:AutreMemoryViewModel}">
+            <views:AutreMemory DataContext="{Binding}"/>
+        </DataTemplate>
+
+    </Window.Resources>
+
+
+    <StackPanel>
+        <Grid 
+            Mouse.MouseEnter="Grid_MouseEnter"
+            Mouse.MouseLeave="Grid_MouseLeave"
+            Mouse.MouseDown="Grid_MouseDown"
+            Mouse.MouseUp="Grid_MouseUp"            
+            Background="#001730">
+            <StackPanel Margin="10" Height="60" HorizontalAlignment="Center" Orientation="Horizontal">
+                <Menu Background="#4AD7D1"  Margin="0 0 10 0" Width="230" Height="45" Style="{DynamicResource MaterialDesignMenu}" >
+                    <MenuItem Width="3000" Height="45" VerticalContentAlignment="Center">
+                        <MenuItem.Header>
+                            <TextBlock FontSize="30" Text="Membres" Margin="33,0,-33,0"/>
+                        </MenuItem.Header>
+                        <MenuItem Click="Afficher_Membre_Click" Header="Afficher">
+                            <MenuItem.Icon>
+                                <materialDesign:PackIcon Kind="Person"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Click="Ajouter_Membre_Click" Header="_Ajouter">
+                            <MenuItem.Icon>
+                                <materialDesign:PackIcon Kind="Tennis"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Click="Administrer_Membre_Click" Header="_Administrer">
+                            <MenuItem.Icon>
+                                <materialDesign:PackIcon Kind="Computer"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                    </MenuItem>
+                </Menu>
+                <Menu Background="#DF3062" Margin="10 0 10 0" Width="230" Height="45" Style="{DynamicResource MaterialDesignMenu}" >
+                    <MenuItem Width="3000" Height="45">
+                        <MenuItem.Header>
+                            <TextBlock FontSize="30" Text="Compétitions"/>
+                        </MenuItem.Header>
+                        <MenuItem Click="Afficher_Competition_Click" Header="Afficher">
+                            <MenuItem.Icon>
+                                <materialDesign:PackIcon Kind="Eye"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Click="Ajouter_Competition_Click" Header="Créer">
+                            <MenuItem.Icon>
+                                <materialDesign:PackIcon Kind="Add"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                    </MenuItem>
+                </Menu>
+                <Menu Background="#F5B935" Margin="10 0 10 0" Width="230" Height="45" Style="{DynamicResource MaterialDesignMenu}" >
+                    <MenuItem Width="3000" Height="45">
+                        <MenuItem.Header>
+                            <TextBlock FontSize="30" Text="Statistiques"/>
+                        </MenuItem.Header>
+                        <MenuItem Click="Afficher_Statistiques_Click" Header="Afficher">
+                            <MenuItem.Icon>
+                                <materialDesign:PackIcon Kind="Person"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                    </MenuItem>
+                </Menu>
+                <Menu Background="#4BAC3F" Margin="10 0 0 0" Width="230" Height="45" Style="{DynamicResource MaterialDesignMenu}" >
+                    <MenuItem Width="3000" Height="45">
+                        <MenuItem.Header>
+                            <TextBlock FontSize="30" Text="Autre"/>
+                        </MenuItem.Header>
+                        <MenuItem Header="Memory" Click="Autre_Memory_Click">
+                            <MenuItem.Icon>
+                                <materialDesign:PackIcon Kind="Cards"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                    </MenuItem>
+                </Menu>
+            </StackPanel>
+            <StackPanel Margin="20 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Vertical">
+                <TextBox x:Name="Admin_Privileges_TB" Margin="0 0 0 10" Background="White" Text="Admin" IsReadOnly="True"/>
+                <ToggleButton Click="Toggle_Admin_Privileges" Background="Red" Style="{StaticResource MaterialDesignSwitchToggleButton}"/>
+            </StackPanel>
+            <Button Margin="0 5 20 0" x:Name="Off" Click="Off_Click" HorizontalAlignment="Right" Height="50" Width="50" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}">
+                <materialDesign:PackIcon Width="50" Height="50" Kind="Power"/>
+            </Button>
+        </Grid>
+        <ContentControl Width="1152" Height="696" Content="{Binding}"/>
+    </StackPanel>
+</Window>
