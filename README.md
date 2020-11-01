@@ -10,7 +10,7 @@ This project is a desktop application made for the management of a tennis club. 
 List of every members of the tennis club
 <img src="Screenshots/Membres.png"
      alt="Accueil"
-     style="float: left; margin-right: 10px; margin-bottom: 20px" />
+     style="float: left; margin-right: 10px; margin-bottom: 10px; margin-top: 10px" />
 
 # Tournaments
 List of every tournament people from the club can compete in with the option to display the person that are already registered for this tournament
