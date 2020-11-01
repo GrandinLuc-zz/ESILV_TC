@@ -1,5 +1,5 @@
 # ESILV_TC
-This project is a desktop application made for the management of a tennis club. I used C# and WPF to build this application.
+This project is a desktop application made for the management of a tennis club. I used the C# framework WPF to build this application.
 
 # Landing page
 <img src="Screenshots/Accueil.png"
